@@ -1,5 +1,5 @@
 const products = require('../data/products.json');
-const Product = require('../models/productModel');
+const Profile = require('../models/profileModel');
 const dotenv = require('dotenv');
 const connectDatabase = require('../config/database')
 
@@ -8,9 +8,9 @@ connectDatabase();
 
 const seedProducts = async ()=>{
     try{
-        await Product.deleteMany();
+        await Profile.deleteMany();
         console.log('Products deleted!')
-        await Product.insertMany(products);
+        await Profile.insertMany(products);
         console.log('All products added!');
     }catch(error){
         console.log(error.message);

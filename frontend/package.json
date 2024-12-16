@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^2.5.0",
     "@stripe/react-stripe-js": "^1.16.4",
     "@stripe/stripe-js": "^1.46.0",
     "@testing-library/jest-dom": "^5.16.5",
@@ -10,6 +11,8 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.2",
     "countries-list": "^2.6.1",
+    "fontawesome-free": "^1.0.4",
+    "lucide-react": "^0.468.0",
     "mdbreact": "^5.2.0",
     "rc-slider": "^10.1.0",
     "rc-tooltip": "^5.3.0",

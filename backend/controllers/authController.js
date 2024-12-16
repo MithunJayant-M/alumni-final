@@ -7,7 +7,7 @@ const crypto = require('crypto')
 
 //Register User - /api/v1/register
 exports.registerUser = catchAsyncError(async (req, res, next) => {
-    const {name, email, password } = req.body
+    const {name, email, password,phone,yearofadmission,yearofgrad,department,dateofbirth,employed,designation,companyname,companylocation,about } = req.body
 
     let avatar;
     
@@ -24,6 +24,7 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
         name,
         email,
         password,
+        phone,yearofadmission,yearofgrad,department,dateofbirth,employed,designation,companyname,companylocation,about,
         avatar
     });
 
@@ -40,8 +41,11 @@ exports.loginUser = catchAsyncError(async (req, res, next) => {
     }
 
     //finding the user database
-    const user = await User.findOne({email}).select('+password');
+    const user = await User.findOne({email}).select('+password').select('+role');
 
+    if (user.role === 'user-unverified') {
+        return next(new ErrorHandler('Access denied. Please contact admin for verification.', 403));
+    }
     if(!user) {
         return next(new ErrorHandler('Invalid email or password', 401))
     }

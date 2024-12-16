@@ -21,7 +21,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 
     useEffect(() => {
         if(isAuthenticated) {
-            navigate(redirect)
+            navigate('/home');
         }
 
         if(error)  {

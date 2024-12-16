@@ -21,12 +21,22 @@ const userSchema = new mongoose.Schema({
         maxlength: [6, 'Password cannot exceed 6 characters'],
         select: false
     },
+    phone: { type: Number, required: true },
+    yearofadmission: { type: Number, required: true },
+    yearofgrad: { type: Number, required: true, default: 1980 },
+    department: { type: String, required: true },
+    dateofbirth: { type: String, required: true },
+    employed: { type: String, required: true },
+    designation: { type: String, required: true },
+    companyname: { type: String, required: true },
+    companylocation: { type: String, required: true },
+    about: { type: String, required: true },
     avatar: {
         type: String
     },
     role :{
         type: String,
-        default: 'user'
+        default: 'user-unverified'
     },
     resetPasswordToken: String,
     resetPasswordTokenExpire: Date,

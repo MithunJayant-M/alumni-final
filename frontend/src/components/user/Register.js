@@ -8,7 +8,17 @@ export default function Register() {
     const [userData, setUserData] = useState({
         name: "",
         email: "",
-        password: ""
+        password: "",
+        phone:"",
+        yearofadmission:"",
+        yearofgrad:"",
+        department:"",
+        dateofbirth:"",
+        employed:"",
+        designation:"",
+        companyname:"",
+        companylocation:"",
+        about:"",
     });
     const [avatar, setAvatar] = useState("");
     const [avatarPreview, setAvatarPreview] = useState("/images/default_avatar.png");
@@ -39,6 +49,16 @@ export default function Register() {
         formData.append('name', userData.name)
         formData.append('email', userData.email)
         formData.append('password', userData.password)
+        formData.append('phone', userData.phone)
+        formData.append('yearofadmission', userData.yearofadmission)
+        formData.append('yearofgrad', userData.yearofgrad)
+        formData.append('department', userData.department)
+        formData.append('dateofbirth', userData.dateofbirth)
+        formData.append('employed', userData.employed)
+        formData.append('designation', userData.designation)
+        formData.append('companyname', userData.companyname)
+        formData.append('companylocation', userData.companylocation)
+        formData.append('about', userData.about)
         formData.append('avatar', avatar);
         dispatch(register(formData))
     }
@@ -92,6 +112,47 @@ export default function Register() {
                   
                 />
                 </div>
+                <div className="form-group">
+                <label htmlFor="phone_field">Phone</label>
+                <input name='phone' onChange={onChange} type="phone" id="phone_field" className="form-control" />
+            </div>
+            
+                <div className="form-group">
+                <label htmlFor="yearofadmission_field">Yearofadmission</label>
+                <input name='yearofadmission' onChange={onChange} type="number" id="yearofadmission_field" className="form-control" />
+            </div>
+            <div className="form-group">
+                <label htmlFor="yearofgrad_field">Yearofgrad</label>
+                <input name='yearofgrad' onChange={onChange} type="number" id="yearofgrad_field" className="form-control" />
+            </div>
+            <div className="form-group">
+                <label htmlFor="department_field">Department</label>
+                <input name='department' onChange={onChange} type="name" id="department_field" className="form-control" />
+            </div>
+            <div className="form-group">
+                <label htmlFor="dateofbirth_field">Dateofbirth</label>
+                <input name='dateofbirth' onChange={onChange} type="date" id="dateofbirth_field" className="form-control" />
+            </div>
+            <div className="form-group">
+                <label htmlFor="employed_field">Employed</label>
+                <input name='employed' onChange={onChange} type="name" id="employed_field" className="form-control" />
+            </div>
+            <div className="form-group">
+                <label htmlFor="designation_field">Designation</label>
+                <input name='designation' onChange={onChange} type="name" id="designation_field" className="form-control" />
+            </div>
+            <div className="form-group">
+                <label htmlFor="companyname">Companyname</label>
+                <input name='companyname' onChange={onChange} type="name" id="companyname" className="form-control" />
+            </div>
+            <div className="form-group">
+                <label htmlFor="companylocation_field">Companylocation</label>
+                <input name='companylocation' onChange={onChange} type="name" id="companylocation" className="form-control" />
+            </div>
+            <div className="form-group">
+                <label htmlFor="about_field">About</label>
+                <input name='about' onChange={onChange} type="name" id="about" className="form-control" />
+            </div>
 
                 <div className='form-group'>
                 <label htmlFor='avatar_upload'>Avatar</label>

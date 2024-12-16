@@ -15,10 +15,10 @@ export default function Sidebar () {
         
                 <li>
                     <NavDropdown title={
-                        <i className='fa fa-product-hunt'> Product</i>
+                        <i className='fa fa-user '>  Alumni</i>
                     }>
-                        <NavDropdown.Item  onClick={() => navigate('/admin/products')} > <i className='fa fa-shopping-basket'> All</i></NavDropdown.Item>
-                        <NavDropdown.Item  onClick={() => navigate('/admin/products/create')} > <i className='fa fa-plus'> Create </i></NavDropdown.Item>
+                        <NavDropdown.Item  onClick={() => navigate('/admin/products')} > <i className='fa fa-shopping-basket'> Alumni List</i></NavDropdown.Item>
+                        <NavDropdown.Item  onClick={() => navigate('/admin/products/create')} > <i className='fa fa-plus'> Create Alumni</i></NavDropdown.Item>
                     </NavDropdown>
                 </li>
 

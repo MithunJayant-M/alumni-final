@@ -18,7 +18,7 @@ export default function Search () {
     }
 
     useEffect(() => {
-        if(location.pathname === '/') {
+        if(location.pathname === '/home') {
             clearKeyword();
         }
     },[location])
@@ -30,7 +30,7 @@ export default function Search () {
                 type="text"
                 id="search_field"
                 className="form-control"
-                placeholder="Enter Product Name ..."
+                placeholder="Enter Alumni Name ..."
                 onChange={(e)=>{ setKeyword(e.target.value) }}
                 value={keyword}
                 />

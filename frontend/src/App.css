@@ -619,3 +619,125 @@ ul.CTAs a {
   font-size: 0.8rem;
   color: grey;
 }
+/* Container */
+.home .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Text Centering */
+.text-center {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* Main Heading */
+.main-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.main-heading span {
+  display: block;
+  margin-top: 10px;
+}
+
+.highlight {
+  color: #4f46e5;
+}
+
+/* Description */
+.description {
+  font-size: 1rem;
+  color: #666;
+  margin: 20px 0;
+}
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.feature {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 1 1 calc(33.333% - 20px);
+}
+
+.icon-container {
+  background-color: #4f46e5;
+  color: #fff;
+  border-radius: 50%;
+  padding: 15px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.feature-description {
+  font-size: 1rem;
+  color: #666;
+}
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.card {
+  flex: 1;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  text-align: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card.users {
+  background-color: #ff6f61; /* Red tone */
+}
+
+.card.departments {
+  background-color: #6c5ce7; /* Purple tone */
+}
+
+.card.batch {
+  background-color: #00cec9; /* Teal tone */
+}
+
+.card.alumni-events {
+  background-color: #fdcb6e; /* Yellow tone */
+}
+
+.card-title {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.card-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+}

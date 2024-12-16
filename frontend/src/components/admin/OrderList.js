@@ -2,8 +2,6 @@ import { Fragment, useEffect } from "react"
 import { Button } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-import { deleteOrder, adminOrders as adminOrdersAction } from "../../actions/orderActions"
-import { clearError, clearOrderDeleted } from "../../slices/orderSlice"
 import Loader from '../layouts/Loader';
 import { MDBDataTable} from 'mdbreact';
 import {toast } from 'react-toastify'
@@ -68,7 +66,6 @@ export default function OrderList() {
 
     const deleteHandler = (e, id) => {
         e.target.disabled = true;
-        dispatch(deleteOrder(id))
     }
 
     useEffect(() => {
@@ -76,7 +73,6 @@ export default function OrderList() {
             toast(error, {
                 position: toast.POSITION.BOTTOM_CENTER,
                 type: 'error',
-                onOpen: ()=> { dispatch(clearError()) }
             })
             return
         }
@@ -84,12 +80,9 @@ export default function OrderList() {
             toast('Order Deleted Succesfully!',{
                 type: 'success',
                 position: toast.POSITION.BOTTOM_CENTER,
-                onOpen: () => dispatch(clearOrderDeleted())
             })
             return;
         }
-
-        dispatch(adminOrdersAction)
     },[dispatch, error, isOrderDeleted])
 
 
@@ -115,3 +108,4 @@ export default function OrderList() {
     </div>
     )
 }
+

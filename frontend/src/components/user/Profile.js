@@ -21,6 +21,26 @@ export default function Profile () {
     
                 <h4>Email Address</h4>
                 <p>{user.email}</p>
+                <h4>Phone</h4>
+                <p>{user.phone}</p>
+                <h4>Yearofadmission</h4>
+                <p>{user.yearofadmission}</p>
+                <h4>Yearofgrad</h4>
+                <p>{user.yearofgrad}</p>
+                <h4>Department</h4>
+                <p>{user.department}</p>
+                <h4>Dateofbirth</h4>
+                <p>{user.dateofbirth}</p>
+                <h4>Employed</h4>
+                <p>{user.employed}</p>
+                <h4>Designation</h4>
+                <p>{user.designation}</p>
+                <h4>Companyname</h4>
+                <p>{user.companyname}</p>
+                <h4>Companylocation</h4>
+                <p>{user.companylocation}</p>
+                <h4>About</h4>
+                <p>{user.about}</p>
 
                 <h4>Joined</h4>
                 <p>{String(user.createdAt).substring(0, 10)}</p>

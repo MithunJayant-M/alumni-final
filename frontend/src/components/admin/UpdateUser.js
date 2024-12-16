@@ -36,7 +36,6 @@ export default function UpdateUser () {
             })
             return;
         }
-
         if(error)  {
             toast(error, {
                 position: toast.POSITION.BOTTOM_CENTER,
@@ -95,7 +94,8 @@ export default function UpdateUser () {
                                 <label htmlFor="category_field">Role</label>
                                 <select disabled={user._id === authUser._id } value={role} onChange={e => setRole(e.target.value)} className="form-control" id="category_field">
                                     <option value="admin">Admin</option>
-                                    <option value="user">User</option>
+                                    <option value="user-unverified">User not verified</option>
+                                    <option value="user-verified">User verfied</option>
                                 </select>
                             </div>
                             <button
