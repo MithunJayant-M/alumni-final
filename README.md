@@ -1,4 +1,4 @@
-# JVL cart
+# JVL code 
 
 an E-commerce Website built with MERN stack.
 
