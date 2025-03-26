@@ -1,0 +1,40 @@
+node_modules
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment Variables
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Logs
+logs/
+*.log
+*.out
+*.pid
+
+# Build
+build/
+dist/
+.DS_Store
+
+# Editor Configurations
+.vscode/
+.idea/
+*.swp
+
+# Coverage
+coverage/
+
+# Dependencies
+package-lock.json
+yarn.lock
+
+# Misc
+*.bak
+*.tmp
+

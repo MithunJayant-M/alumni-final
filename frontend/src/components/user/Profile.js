@@ -46,7 +46,7 @@ export default function Profile () {
                 <p>{String(user.createdAt).substring(0, 10)}</p>
 
                 <Link to="/orders" className="btn btn-danger btn-block mt-5">
-                    My Orders
+                    Community page
                 </Link>
 
                 <Link to="/myprofile/update/password" className="btn btn-primary btn-block mt-3">

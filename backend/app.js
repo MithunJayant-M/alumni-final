@@ -45,10 +45,12 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 const profile = require('./routes/profile');
 const auth = require('./routes/auth');
 const payment = require('./routes/payment');
+const blog=require('./routes/blog')
 
 // Use routes
 app.use('/api/v1/', profile);
 app.use('/api/v1/', auth);
+app.use('/api/v1/', blog);
 app.use('/api/v1/', payment);
 
 // Serve frontend for production

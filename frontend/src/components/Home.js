@@ -1,66 +1,3 @@
-// import { Fragment, useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { getProfiles } from "../actions/profileActions";
-// import Loader from "./layouts/Loader";
-// import MetaData from "./layouts/MetaData";
-// import Profile from "./product/Profile";
-// import  {toast} from 'react-toastify';
-// import Pagination from 'react-js-pagination';
-
-// export  default function Home(){
-//     const dispatch = useDispatch();
-//     const {Profiles, loading, error, profilesCount, resPerPage} =    useSelector((state) => state.profileState)
-//     const [currentPage, setCurrentPage] = useState(1);
- 
-//     const setCurrentPageNo = (pageNo) =>{
-
-//         setCurrentPage(pageNo)
-       
-//     }
-
-//     useEffect(()=>{
-//         if(error) {
-//             return toast.error(error,{
-//                 position: toast.POSITION.BOTTOM_CENTER
-//             })
-//         }
-//         dispatch(getProfiles(null, null, null, null, currentPage)) 
-//     }, [error, dispatch, currentPage])
-
-
-//     return (
-//         <Fragment>
-//             {loading ? <Loader/>:
-//                 <Fragment>
-//                     <MetaData title={'Buy Best Profiles'} data={getProfiles()} />
-//                     <h1 id="profiles_heading">Latest Profiles</h1>
-//                     <section id="Profiles" className="container mt-5">
-//                         <div className="row">
-//                             { Profiles && Profiles.map(profile => (
-//                                 <Profile col={3} key={profile._id}  profile={profile}/>
-//                             ))}
-                        
-//                         </div>
-//                     </section>
-//                     {profilesCount > 0 && profilesCount > resPerPage?
-//                     <div className="d-flex justify-content-center mt-5">
-//                            <Pagination 
-//                                 activePage={currentPage}
-//                                 onChange={setCurrentPageNo}
-//                                 totalItemsCount={profilesCount}
-//                                 itemsCountPerPage={resPerPage}
-//                                 nextPageText={'Next'}
-//                                 firstPageText={'First'}
-//                                 lastPageText={'Last'}
-//                                 itemClass={'page-item'}
-//                                 linkClass={'page-link'}
-//                            />     
-//                     </div> : null }
-//                 </Fragment>
-//            }
-//         </Fragment>
-//     )
-// }
 import { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "./layouts/Loader";
@@ -75,11 +12,11 @@ export default function ProfileList() {
     const setProfiles = () => {
         const data = {
             columns: [
-                {
-                    label: "Profile Thumbnail",
-                    field: "profileThumbnail",
-                    sort: "asc"
-                },
+                // {
+                //     label: "Profile Thumbnail",
+                //     field: "profileThumbnail",
+                //     sort: "asc"
+                // },
                 {
                     label: "Full Name",
                     field: "fullName",
@@ -116,14 +53,14 @@ export default function ProfileList() {
                         View Profile
                     </a>
                 ),
-                profileThumbnail: (
-                    <img
-                        src={profile.ProfileThumbnail}
-                        alt="Profile Thumbnail"
-                        width="90"
-                        height="90"
-                    />
-                ),
+                // profileThumbnail: (
+                //     <img
+                //         src={profile.ProfileThumbnail}
+                //         alt="Profile Thumbnail"
+                //         width="90"
+                //         height="90"
+                //     />
+                // ),
                 actions: (
                     <a href={profile.LinkedInURL} target="_blank" rel="noopener noreferrer">
                         LinkedIn

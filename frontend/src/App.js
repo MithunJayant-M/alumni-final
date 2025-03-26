@@ -20,18 +20,22 @@ import UpdatePassword from './components/user/UpdatePassword';
 import ForgotPassword from './components/user/ForgotPassword';
 import ResetPassword from './components/user/ResetPassword';
 import axios from 'axios';
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
+// import { Elements } from '@stripe/react-stripe-js';
+// import { loadStripe } from '@stripe/stripe-js';
 import Dashboard from './components/admin/Dashboard';
 import ProfileList from './components/admin/ProfileList';
 import NewProfile from './components/admin/NewProfiles';
 import Updateprofiles from './components/admin/Updateprofiles';
-import OrderList from './components/admin/OrderList';
-import UpdateOrder from './components/admin/UpdateOrder';
+// import OrderList from './components/admin/OrderList';
+// import UpdateOrder from './components/admin/UpdateOrder';
 import UserList from './components/admin/UserList';
 import UpdateUser from './components/admin/UpdateUser';
-import ReviewList from './components/admin/ReviewList';
+// import ReviewList from './components/admin/ReviewList';
 import LandingPage from './components/LandingPage';
+import Note from './pages/Home/Notes';
+import Dash from './components/admin/ChartDash';
+import UserRulesPage from './components/user/UserRulesPage';
+import AdminRulesPage from './components/admin/AdminRulesPage';
 
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState("")
@@ -54,11 +58,12 @@ function App() {
                   <Routes>
                       <Route path='/' element={<LandingPage/>}/>
                       <Route path='/home' element={<ProtectedRoute><Home/></ProtectedRoute>} />
+                      <Route path='/userrules' element={<ProtectedRoute><UserRulesPage/></ProtectedRoute>} />
                       <Route path='/search/:keyword' element={<ProfileSearch/>} />
                       <Route path='/product/:id' element={<ProfileDetail/>} />
                       <Route path='/login' element={<Login/>} />
                       <Route path='/register' element={<Register/>} />
-                      
+                      <Route path='/orders' element={<ProtectedRoute><Note/></ProtectedRoute>}/>
                       <Route path='/myprofile' element={<ProtectedRoute><Profile/></ProtectedRoute> } />
                       <Route path='/myprofile/update' element={<ProtectedRoute><UpdateProfile/></ProtectedRoute> } />
                       <Route path='/myprofile/update/password' element={<ProtectedRoute><UpdatePassword/></ProtectedRoute> } />
@@ -69,14 +74,16 @@ function App() {
                 {/* Admin Routes */}
                 <Routes>
                   <Route path='/admin/dashboard' element={ <ProtectedRoute isAdmin={true}><Dashboard/></ProtectedRoute> } />
+                  <Route path='/admin/adminrules' element={ <ProtectedRoute isAdmin={true}><AdminRulesPage/></ProtectedRoute> } />
                   <Route path='/admin/products' element={ <ProtectedRoute isAdmin={true}><ProfileList/></ProtectedRoute> } />
                   <Route path='/admin/products/create' element={ <ProtectedRoute isAdmin={true}><NewProfile/></ProtectedRoute> } />
                   <Route path='/admin/products/:id' element={ <ProtectedRoute isAdmin={true}><Updateprofiles/></ProtectedRoute> } />
-                  <Route path='/admin/orders' element={ <ProtectedRoute isAdmin={true}><OrderList/></ProtectedRoute> } />
-                  <Route path='/admin/order/:id' element={ <ProtectedRoute isAdmin={true}><UpdateOrder/></ProtectedRoute> } />
+                  <Route path='/admin/orders' element={ <ProtectedRoute isAdmin={true}><Note/></ProtectedRoute> } />
+                  <Route path='/admin/dash' element={<ProtectedRoute isAdmin={true}><Dash/></ProtectedRoute>}/>
+                  {/* <Route path="/admin/order" element={ <ProtectedRoute isAdmin={true}><Blogdetail/></ProtectedRoute>}/>
+                  <Route path='/admin/order/:id' element={ <ProtectedRoute isAdmin={true}><UpdateOrder/></ProtectedRoute> } /> */}
                   <Route path='/admin/users' element={ <ProtectedRoute isAdmin={true}><UserList/></ProtectedRoute> } />
                   <Route path='/admin/user/:id' element={ <ProtectedRoute isAdmin={true}><UpdateUser/></ProtectedRoute> } />
-                  <Route path='/admin/reviews' element={ <ProtectedRoute isAdmin={true}><ReviewList/></ProtectedRoute> } />
                 </Routes>
             <Footer/>
         </HelmetProvider>

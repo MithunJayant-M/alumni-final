@@ -10,7 +10,7 @@ export default function Sidebar () {
             <nav id="sidebar">
                 <ul className="list-unstyled components">
                 <li>
-                    <Link to="/admin/dashboard"><i className="fas fa-tachometer-alt"></i> Dashboard</Link>
+                    <Link to="/admin/dashboard"><i className="fa fa-columns"></i> Dashboard</Link>
                 </li>
         
                 <li>
@@ -23,16 +23,16 @@ export default function Sidebar () {
                 </li>
 
                 <li>
-                    <Link to="/admin/orders"><i className="fa fa-shopping-basket"></i> Orders</Link>
+                    <Link to="/admin/orders"><i className="fa fa-comments"></i> Community Page</Link>
                 </li>
 
                 <li>
                     <Link to="/admin/users"><i className="fa fa-users"></i> Users</Link>
                 </li>
 
-                <li>
+                {/* <li>
                     <Link to="/admin/reviews"><i className="fa fa-users"></i> Reviews</Link>
-                </li>
+                </li> */}
         
             </ul>
             </nav>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Search from './Search';
+// import Search from './Search';
 import {useDispatch, useSelector} from 'react-redux';
 import { Dropdown, Image} from 'react-bootstrap';
 import { logout } from '../../actions/userActions';
@@ -17,50 +17,76 @@ export default function Header () {
 
 
     return (
-    <nav className="navbar row">
-        <div className="col-12 col-md-3">
-          <div className="navbar-brand">
-            {isAuthenticated?
-            <Link to="/home">
-            <img width="70px" alt='ALUMNI LOGO' src="https://stjosephs.ac.in/assets/images/Engg%20Logo1.png" />
-            St.Joseph's College of Engineering
-          </Link>:<Link to="/">
-              <img width="70px" alt='ALUMNI LOGO' src="https://stjosephs.ac.in/assets/images/Engg%20Logo1.png" />
-              St.Joseph's College of Engineering
-            </Link>}
-            
-            </div>
-        </div>
-        {/* { isAuthenticated ? 
-        <div className="col-12 col-md-5 mt-2 mt-md-0">
-           <Search/>
-        </div>:<div></div>
-        }   */}
-        <div className="col-12 col-md-3 mt-5 mt-md-0 text-center">
-          { isAuthenticated ? 
-            (
+      <nav className="navbar d-flex justify-content-between align-items-center px-4 ">
+      {/* Logo Section */}
+      <div className="navbar-brand">
+          {isAuthenticated ? (
+            <>
+            {user.role ==='admin' &&(
+              <Link to="/admin/adminrules" className="d-flex align-items-center">
+                  <img width="70px" alt="ALUMNI LOGO" src="https://stjosephs.ac.in/assets/images/Engg%20Logo1.png" />
+                  <span className="ml-2">St. Joseph's College of Engineering</span>
+              </Link>)}
+              {user.role ==='user-verified' &&( 
+              <Link to="/userrules" className="d-flex align-items-center">
+                  <img width="70px" alt="ALUMNI LOGO" src="https://stjosephs.ac.in/assets/images/Engg%20Logo1.png" />
+                  <span className="ml-2">St. Joseph's College of Engineering</span>
+              </Link>)}
+              </>
+          ) : (
+              <Link to="/" className="d-flex align-items-center">
+                  <img width="70px" alt="ALUMNI LOGO" src="https://stjosephs.ac.in/assets/images/Engg%20Logo1.png" />
+                  <span className="ml-2">St. Joseph's College of Engineering</span>
+              </Link>
+          )}
+      </div>
 
-              <Dropdown className='d-inline'>
-                  <Dropdown.Toggle variant='default text-white pr-5 ' id='dropdown-basic'>
-                    <figure className='avatar avatar-nav'>
-                      <Image width="50px" src={user.avatar??'./images/default_avatar.png'}  />
-                    </figure>
-                    <span>{user.name}</span>
-                  </Dropdown.Toggle >
-                  <Dropdown.Menu >
-                      { user.role === 'admin' && <Dropdown.Item onClick={() => {navigate('admin/dashboard')}} className='text-dark'>Dashboard</Dropdown.Item> }
-                      <Dropdown.Item onClick={() => {navigate('/myprofile')}} className='text-dark'>Profile</Dropdown.Item>
-                      {/* <Dropdown.Item onClick={() => {navigate('/orders')}} className='text-dark'>Orders</Dropdown.Item> */}
-                      <Dropdown.Item onClick={logoutHandler} className='text-danger'>Logout</Dropdown.Item>
-                  </Dropdown.Menu>
-              </Dropdown>
-            )
-          
-          :
-            <Link to="/login"  className="btn mt-5" id="login_btn">Login</Link>
-          }
-          
-        </div>
-    </nav>
+      {/* Right-aligned Navigation Items */}
+      <div className="d-flex align-items-center text-white">
+          {isAuthenticated && (
+              <>
+                  {user.role === 'admin' && (
+                      <Link to="/admin/dashboard" className="nav-link text-white mx-3">
+                          Dashboard
+                      </Link>
+                  )}
+                  {user.role === 'admin' && (
+                    <Link to="/admin/products" className='nav-link text-white mx-3'>
+                        Alumni List
+                    </Link>
+                  )}
+                  {user.role === 'user-verified' && (
+                    <Link to ="/home" className='nav-link text-white mx-3'>
+                      Alumni List 
+                      </Link>
+                  )}
+                  <Link to={user.role === 'admin' ? "/admin/orders" : "/orders"} className="nav-link text-white mx-3">
+                      Community Page
+                  </Link>
+                  <Link to="/myprofile" className="nav-link text-white mx-3">
+                      Profile
+                  </Link>
+                  <button onClick={logoutHandler} className="btn btn-danger mx-3">
+                      Logout
+                  </button>
+              </>
+          )}
+          {!isAuthenticated && (
+              <Link to="/login" className="btn btn-primary mx-3" id="login_btn">
+                  Login
+              </Link>
+          )}
+
+          {/* User Avatar */}
+          {isAuthenticated && (
+              <div className="d-flex align-items-center">
+                  <figure className="avatar avatar-nav mb-0">
+                      <Image width="50px" src={user.avatar ?? './images/default_avatar.png'} className="rounded-circle" />
+                  </figure>
+                  <span className="ml-2">{user.name}</span>
+              </div>
+          )}
+      </div>
+  </nav>
     )
 }

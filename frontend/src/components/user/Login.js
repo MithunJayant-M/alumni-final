@@ -11,7 +11,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
     const navigate = useNavigate();
     const location = useLocation();
 
-    const { loading, error, isAuthenticated } = useSelector(state => state.authState)
+    const { loading, error, isAuthenticated,user } = useSelector(state => state.authState)
     const redirect = location.search?'/'+location.search.split('=')[1]:'/';
 
     const  submitHandler = (e) => {
@@ -20,8 +20,11 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
     }
 
     useEffect(() => {
-        if(isAuthenticated) {
-            navigate('/home');
+        if(isAuthenticated && user.role === 'user-verified') {
+            navigate('/userrules');
+        }
+        if(isAuthenticated && user.role === 'admin') {
+            navigate('/admin/adminrules');
         }
 
         if(error)  {
