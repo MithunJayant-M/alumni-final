@@ -1,15 +1,16 @@
 {
-  "name": "jvlcart",
-  "version": "1.0.0",
-  "description": "ecommerce using MERN stack",
+  "name": "AlumniDB",
+  "version": "1.0.0"
+  "description": "alumni app",
   "main": "server.js",
   "scripts": {
     "start": "nodemon backend/server.js",
     "dev": "set NODE_ENV=development&&nodemon backend/server.js",
     "prod": "set NODE_ENV=production&&nodemon backend/server.js",
-    "seeder": "node backend/utils/seeder.js"
+    "seeder": "node backend/utils/seeder.js",
+    "build": "react-scripts build"
   },
-  "author": "JV Logesh",
+  "author": "Mithun Jayant",
   "license": "ISC",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
