@@ -122,5 +122,5 @@ git push heroku main
 This project is licensed under the MIT License.
 
 ## Contact
-For any inquiries, reach out via email: [your-email@example.com] or visit [your-portfolio-link].
+For any inquiries, reach out via email: [jaimithun851@gmail.com].
 
